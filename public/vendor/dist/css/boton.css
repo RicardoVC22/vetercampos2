@@ -1,0 +1,115 @@
+.max-height-300 pre {
+    max-height: 300px;
+  }
+  
+  .theme-switch {
+    display: inline-block;
+    height: 24px;
+    position: relative;
+    width: 50px;
+  }
+  
+  .theme-switch input {
+    display: none;
+  }
+  
+  .slider {
+    background-color: #ccc;
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: 400ms;
+  }
+  
+  .slider::before {
+    background-color: #fff;
+    bottom: 4px;
+    content: "";
+    height: 16px;
+    left: 4px;
+    position: absolute;
+    transition: 400ms;
+    width: 16px;
+  }
+  
+  .max-height-300 pre {
+    max-height: 300px;
+  }
+  .centrar-verticalmente{
+    height: 24px;
+    padding: none;
+    /* background-color:  #495057;
+    background-color: solid #dee2e6; */
+  }
+  .theme-switch {
+    display: inline-block;
+    height: 24px;
+    position: relative;
+    width: 50px;
+
+  }
+  
+  .theme-switch input {
+    display: none;
+  }
+  
+  .slider {
+    background-color: #ccc;
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: 400ms;
+  }
+  
+  .slider::before {
+    background-color: #fff;
+    bottom: 4px;
+    content: "";
+    height: 16px;
+    left: 4px;
+    position: absolute;
+    transition: 400ms;
+    width: 16px;
+  }
+  
+  input:checked + .slider {
+    background-color: #17a2b8;
+  }
+  
+  input:checked + .slider::before {
+    transform: translateX(26px);
+  }
+  
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round::before {
+    border-radius: 50%;
+  }
+/*=========================== ELIMINAR BOTONES DEL INPUT TYPE NUMBER ============================*/
+.eliminarbtn input[type=number]::-webkit-inner-spin-button, 
+.eliminarbtn input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none;
+  margin: 0;
+}
+.eliminarbtn input[type=number] { -moz-appearance:textfield; }
+
+/*=========================== LABEL  E INPUT MONTO ============================*/
+.montoventa label{
+  font-weight: bold; font-size: 24px; text-align: center;
+
+}
+.montoventa input{
+  font-weight: bold; font-size: 25px; text-align: center;
+  border-color: rgb(0, 0, 0);
+  color: rgb(228, 1, 1);
+  /* background-color:rgba(94, 241, 50, 0.3); */
+  background-color:rgba(17, 226, 215, 0.5);
+}
