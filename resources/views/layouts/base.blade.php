@@ -5,11 +5,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   {{-- <link rel="icon" href="{{asset('/vendor/images/icono.png')}}" sizes="32x32" /> --}}
-  <title>Pollo Montero</title>
+  <title>VeterCampos</title>
 
 <!-- autocomplete de venta -->
 <script src="{{asset('/vendor/js/jquery-3.5.1.min.js')}}"></script>
- <script src="{{asset('/vendor/js/jquery-ui/jquery-ui.min.js')}}"></script> 
+ <script src="{{asset('/vendor/js/jquery-ui/jquery-ui.min.js')}}"></script>
  <link href="{{asset('/vendor/js/jquery-ui/jquery-ui.min.css')}}" rel="stylesheet"/>
   <!-- / autocomplete de venta -->
 
@@ -23,6 +23,7 @@
   <!-- Theme style -->
   <link rel="stylesheet" href="{{asset('/vendor/dist/css/adminlte.min.css')}}">
   <link rel="stylesheet" href="{{asset('/vendor/dist/css/boton.css')}}">
+  <link rel="stylesheet" href="{{asset('/vendor/plugins/toastr/toastr.min.css')}}">
    <!-- DataTables -->
    <link rel="stylesheet" href="{{asset('/vendor/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css')}}">
   <link rel="stylesheet" href="{{asset('/vendor/plugins/datatables-responsive/css/responsive.bootstrap4.min.css')}}">
@@ -33,10 +34,10 @@
   <script src="{{asset('/vendor/plugins/chart.js/Chart.min.js')}}"></script>
 
 </head>
- 
+
 <!--<body class="hold-transition layout-fixed sidebar-collapse sidebar-mini-md layout-navbar-fixed">  layout-navbar-fixed --FIJA EL NAV-->
 <body class="layout-fixed sidebar-mini-md layout-navbar-fixed">  <!--layout-navbar-fixed --FIJA EL NAV-->
- 
+
 <!-- Site wrapper -->
 <div class="wrapper">
   <!-- Navbar -->
@@ -91,13 +92,13 @@
           </li>
         </ul>
       </li>
-      
+
       <li class="nav-item">
         <a class="nav-link" data-widget="fullscreen" href="#" role="button">
           <i class="fas fa-expand-arrows-alt"></i>
         </a>
       </li>
-   
+
     </ul>
   </nav>
   <!-- /.navbar -->
@@ -107,7 +108,7 @@
     <!-- Brand Logo -->
     <a href="{{url('/home')}}" class="brand-link">
       <img src="{{asset('/vendor/adminlte/dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-bold font-weight-light">Pollo Montero</span>
+      <span class="brand-text font-weight-bold font-weight-light">VeterCampos</span>
     </a>
 
     <!-- Sidebar -->
@@ -115,7 +116,7 @@
       <!-- Sidebar user (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="{{asset('/vendor/adminlte/dist/img/user.png')}}" class="img-circle elevation-2" alt="User Image"> 
+          <img src="{{asset('/vendor/adminlte/dist/img/user.png')}}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
           <a href="#" class="d-block">{{Auth::user()->name}}</a>
@@ -149,32 +150,6 @@
               </li>
             </ul>
           </li>
-
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-clipboard-list"></i>
-
-              <p>
-                Receta
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{ asset('producto/receta') }}" class="nav-link">
-                <i class="far fa-dot-circle nav-icon"></i>
-                  <p>Receta</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{route('ingrediente')}}" class="nav-link">
-                <i class="far fa-dot-circle nav-icon"></i>
-                  <p>Ingredientes</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-warehouse"></i>
@@ -198,6 +173,46 @@
               </li>
             </ul>
           </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-clipboard-list"></i>
+
+              <p>
+                Servcio
+                <i class="right fas fa-angle-left"></i>
+              </p>
+
+            </a>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    <a href="{{ asset('servicio') }}" class="nav-link">
+                    <i class="far fa-dot-circle nav-icon"></i>
+                      <p>Servicios</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{{ asset('tipo_servicio') }}" class="nav-link">
+                    <i class="far fa-dot-circle nav-icon"></i>
+                      <p>Tipo Servicio</p>
+                    </a>
+                  </li>
+                <!-- <li class="nav-item">
+                <a href="{{ asset('producto/receta') }}" class="nav-link">
+                <i class="far fa-dot-circle nav-icon"></i>
+                  <p>Receta</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('ingrediente')}}" class="nav-link">
+                <i class="far fa-dot-circle nav-icon"></i>
+                  <p>Ingredientes</p>
+                </a>
+              </li>-->
+
+            </ul>
+          </li>
+
+
 
           <li class="nav-item">
             <a href="{{asset('administracion/cliente')}}" class="nav-link">
@@ -207,6 +222,40 @@
               </p>
             </a>
           </li>
+
+          <!--Mascota -->
+          <li class="nav-item">
+            <a href="{{asset('mascota')}}" class="nav-link">
+              <i class="far fa-dot-circle nav-icon"></i>
+              <p>
+                Mascotas
+              </p>
+            </a>
+          </li>
+           <!--Empleado -->
+           <li class="nav-item">
+            <a href="{{route('empleado')}}" class="nav-link">
+             <i class="nav-icon fas fa-user"></i>
+              <p>Empleado</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{route('consulta.index')}}" class="nav-link">
+              <i class="nav-icon fas fa-user"></i>
+              <p>
+                Consultas
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{route('venta.index')}}" class="nav-link">
+              <i class="nav-icon fas fa-edit"></i>
+              <p>
+                Venta
+              </p>
+            </a>
+          </li>
+         <!--
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-hot-tub"></i>
@@ -232,17 +281,17 @@
               </p>
             </a>
           </li>
-
+        -->
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-edit"></i>
+              <i class="nav-icon fas fa-users"></i>
               <p>
-                Administración
+                Usuario
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
- 
+
               <li class="nav-item">
                 <a href="{{asset('administracion')}}" class="nav-link">
                  <i class="far fa-dot-circle nav-icon"></i>
@@ -256,14 +305,7 @@
                   <p>Roles</p>
                 </a>
               </li>
-              
-              <li class="nav-item">
-                <a href="{{route('empleado')}}" class="nav-link">
-                 <i class="far fa-dot-circle nav-icon"></i>
-                  <p>Empleado</p>
-                </a>
-              </li>
-
+ <!--
               <li class="nav-item">
                 <a href="{{route('repartidor')}}" class="nav-link">
                  <i class="far fa-dot-circle nav-icon"></i>
@@ -277,7 +319,7 @@
                   <p>Provedores</p>
                 </a>
               </li>
-
+            -->
             </ul>
           </li>
         </ul>
@@ -293,10 +335,10 @@
   @yield('content')
 
   {{-- INICIO DEL FOOTER --}}
-  
+
   <footer class="main-footer text-sm">
     <div class="float-right d-none d-sm-block">
-      <b>Sistema en Desarrollo</b> 70%
+      <b>Sistema de Informacion 2</b>
     </div>
   </footer>
 
@@ -304,6 +346,7 @@
 
 <!-- Bootstrap 4 -->
 <script src="{{asset('/vendor/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+<script src="{{asset('/vendor/plugins/toastr/toastr.min.js')}}"></script>
 <!-- SweetAlert2 -->
 <script src="{{asset('/vendor/plugins/sweetalert2/sweetalert2.min.js')}}"></script>
 <!-- AdminLTE App -->

@@ -57,9 +57,7 @@
                                           <td>{{$pa->stock}}</td>
                                           <td class="py-1 align-middle text-center">
                                             <div class="btn-group btn-group-sm">
-                                              <a class="btn btn-warning" rel="tooltip" data-placement="top" title="Editar" href=""><i class="fas fa-pencil-alt"></i></a>
-                                              <a href="#" class="btn btn-danger" rel="tooltip" data-placement="top" title="Eliminar" data-href="" data-toggle="modal" data-target="#modal-confirma"><i class="fas fa-trash"></i></a>
-                                            </div>
+                                               </div>
                                           </td>
                                       </tr>
                                     </tr>

@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'Pollo Montero',
+    'title' => 'Veter Campos',
     'title_prefix' => '',
     'title_postfix' => '',
 

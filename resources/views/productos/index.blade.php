@@ -46,7 +46,7 @@
                                         <th> nombre </th>
                                         <th> descripcion </th>
                                         <th> precio </th>
-                                        <th> stock </th>
+                                       
                                         <th width="7%">Acción</th>
                                       </tr>
                                   </thead>
@@ -65,7 +65,7 @@
                                           <td>{{$producto->nombre}}</td>
                                           <td>{{$producto->descripcion}}</td>
                                           <td>{{$producto->precio}}</td>
-                                          <td>{{$producto->stock}}</td>
+                                          
                                           <td class="py-1 align-middle text-center">
                                             <div class="btn-group btn-group-sm">
                                               @if ($producto->recetado == 1)

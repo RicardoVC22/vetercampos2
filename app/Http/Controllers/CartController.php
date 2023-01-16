@@ -60,7 +60,7 @@ class CartController extends Controller
         // $iduser=Auth::user()->id;
         $cliente=Cliente::all();
         $cliente=$cliente->where('id_usuario',$userId)->first();
-    // dd( $cliente );
+   
 
         return view('checkout',compact('cliente'));
     }

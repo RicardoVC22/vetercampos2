@@ -25,12 +25,12 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-       //creacion de roles y permisos 
+       //creacion de roles y permisos
        $role1=Role::create(['name'=>'Administrador']);
        $role2=Role::create(['name'=>'Cliente']);
        $role3=Role::create(['name'=>'Repartidor']);
        $role4=Role::create(['name'=>'Recepcionesta']);
-       
+
        Permission::create(['name'=> 'catalogo', 'subname'=> 'catalogo principal'])->syncRoles([$role1,$role2,$role3,$role4]);
        //administracion usuarios
        Permission::create(['name'=> 'usuario', 'subname'=> 'usuario principal','tipo'=>2])->syncRoles([$role1,$role4]);
@@ -83,12 +83,12 @@ class UserSeeder extends Seeder
         Permission::create(['name'=> 'empleado.eliminados', 'subname'=> 'ver empleado eliminados','tipo'=>8])->syncRoles([$role1]);
         Permission::create(['name'=> 'empleado.restore', 'subname'=> 'restaurar empleado eliminados','tipo'=>8])->syncRoles([$role1]);
         //administracion repartidor
-        Permission::create(['name'=> 'repartidor', 'subname'=> 'repartidor principal','tipo'=>9])->syncRoles([$role1]);
-        Permission::create(['name'=> 'repartidor.editar', 'subname'=> 'editar repartidor','tipo'=>9])->syncRoles([$role1]);
-        Permission::create(['name'=> 'repartidor.eliminar', 'subname'=> 'eliminar repartidor','tipo'=>9])->syncRoles([$role1]);
-        Permission::create(['name'=> 'repartidor.agregar', 'subname'=> 'agregar repartidor','tipo'=>9])->syncRoles([$role1]);
-        Permission::create(['name'=> 'repartidor.eliminados', 'subname'=> 'ver repartidor eliminados','tipo'=>9])->syncRoles([$role1]);
-        Permission::create(['name'=> 'repartidor.restore', 'subname'=> 'restaurar repartidor eliminados','tipo'=>9])->syncRoles([$role1]);
+        //Permission::create(['name'=> 'repartidor', 'subname'=> 'repartidor principal','tipo'=>9])->syncRoles([$role1]);
+        //Permission::create(['name'=> 'repartidor.editar', 'subname'=> 'editar repartidor','tipo'=>9])->syncRoles([$role1]);
+        //Permission::create(['name'=> 'repartidor.eliminar', 'subname'=> 'eliminar repartidor','tipo'=>9])->syncRoles([$role1]);
+        //Permission::create(['name'=> 'repartidor.agregar', 'subname'=> 'agregar repartidor','tipo'=>9])->syncRoles([$role1]);
+        //Permission::create(['name'=> 'repartidor.eliminados', 'subname'=> 'ver repartidor eliminados','tipo'=>9])->syncRoles([$role1]);
+        //Permission::create(['name'=> 'repartidor.restore', 'subname'=> 'restaurar repartidor eliminados','tipo'=>9])->syncRoles([$role1]);
         //administracion reportes
         Permission::create(['name'=> 'reporte', 'subname'=> 'reporte principal','tipo'=>10])->syncRoles([$role1]);
         Permission::create(['name'=> 'reporte.stock_minimo', 'subname'=> 'mostrar reporte de stock minimos','tipo'=>10])->syncRoles([$role1]);
@@ -132,7 +132,7 @@ class UserSeeder extends Seeder
         'name' => 'cliente1',
         'email' => 'cliente1@gmail.com',
         'password' => Hash::make('123'),
-        ])->assignRole('Cliente'); 
+        ])->assignRole('Cliente');
 
        Cliente::create([
             'nombre'=>'cliente1',
@@ -171,7 +171,7 @@ class UserSeeder extends Seeder
        'telefono'=>77772262,
        'id_usuario'=>$UserRepartirdor1->id,
        ]);
-      
+
        //creacion de provedor
 
        $p1=provedor::create([

@@ -10,6 +10,8 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\ConsultaController;
+use App\Http\Controllers\ConsultaServicioController;
 use App\Http\Controllers\ContactanosController;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\ProvedorController;
@@ -17,9 +19,14 @@ use App\Http\Controllers\IngredienteController;
 use App\Http\Controllers\ProductoAlmacenController;
 use App\Http\Controllers\RepartidorController;
 use App\Http\Controllers\EmpleadoController;
+use App\Http\Controllers\MascotaController;
 use App\Http\Controllers\PedidoController;
 use App\Http\Controllers\ProduccionController;
 use App\Http\Controllers\TemporalInventarioController;
+use App\Http\Controllers\VentaController;
+use App\Http\Controllers\TipoServicioController;
+use App\Http\Controllers\ServicioController;
+use App\Http\Controllers\TemporalConsultaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -221,3 +228,78 @@ Route::controller(ProduccionController::class)->group(function (){
     Route::get('terminar/{produccion}','terminarproduccion')->name('produccion.terminarproduccion');
 });
 
+//Pedido
+Route::controller(VentaController::class)->group(function (){
+    Route::get('venta','index')->name('venta.index');
+    Route::get('venta/generar','nota_venta')->name('venta.generar');
+    Route::get('venta/delete/{id}','delete')->name('venta.delete');
+
+
+   Route::post('venta/store','store')->name('venta.store');
+   Route::get('venta/detalle/{id_venta}','pdf_detalle')->name('venta.detalle');
+  // Route::post('venta/editar','update')->name('venta.update');
+  //  Route::get('venta/ordenes','orders')->name('venta.ordenes');
+  //  Route::put('venta/cancelar','cancelarsolicitud')->name('venta.cancelar');
+});
+
+Route::controller(ServicioController::class)->group(function (){
+    Route::get('servicio','index');
+    Route::get('servicio/create','create');
+   Route::post('servicio/store','store');
+    Route::get('servicio/edit/{id}','edit');
+    Route::put('servicio/update/{id}','update');
+    Route::get('servicio/destroy/{id}','destroy');
+    Route::get('servicio/eliminados','deletes');
+    Route::get('servicio/restaurar/{id}','restore');
+});
+
+Route::controller(TipoServicioController::class)->group(function (){
+    Route::get('tipo_servicio','index');
+    Route::get('tipo_servicio/create','create');
+   Route::post('tipo_servicio/store','store');
+    Route::get('tipo_servicio/edit/{id}','edit');
+    Route::put('tipo_servicio/update/{id}','update');
+    Route::get('tipo_servicio/destroy/{id}','destroy');
+    Route::get('tipo_servicio/eliminados','deletes');
+    Route::get('tipo_servicio/restaurar/{id}','restore');
+});
+
+Route::controller(ConsultaController::class)->group(function (){
+    Route::get('consulta','index')->name('consulta.index');
+    Route::get('consulta/create','create')->name('consulta.create');
+    Route::get('consulta/add_mascota/{id}','mascota_add')->name('consulta.add_mascota');
+    Route::post('consulta/mascota_store','mascota_store')->name('consulta.mascota_store');
+    Route::post('consulta/store','store')->name('consulta.store');
+    Route::get('consulta/generar','nota_venta')->name('consulta.generar');
+    Route::get('consulta/delete/{id}','delete')->name('consulta.delete');
+
+
+ //  Route::post('venta/store','store')->name('venta.store');
+    Route::get('consulta/detalle/{id_consulta}','pdf_detalle')->name('consulta.detalle');
+  // Route::post('venta/editar','update')->name('venta.update');
+  //  Route::get('venta/ordenes','orders')->name('venta.ordenes');
+  //  Route::put('venta/cancelar','cancelarsolicitud')->name('venta.cancelar');
+});
+
+Route::controller(ConsultaServicioController::class)->group(function (){
+    Route::get('consulta_servicio/create/{id_consulta}','create')->name('consulta_servicio.create');
+   Route::post('consulta_servicio/store','store')->name('consulta_servicio.store');
+    Route::get('consulta_servicio/buscar/{id}','buscar');
+});
+
+Route::controller(TemporalConsultaController::class)->group(function (){
+   Route::post('temporalconsulta/insertar','insertar');
+    Route::get('temporalconsulta/eliminar/{id}','eliminar');
+    Route::get('temporalconsulta/vaciar','vaciar');
+});
+
+Route::controller(MascotaController::class)->group(function (){
+    Route::get('mascota','index');
+    Route::get('mascota/create','create');
+   Route::post('mascota/store','store');
+    Route::get('mascota/edit/{id}','edit');
+    Route::put('mascota/update/{id}','update');
+    Route::get('mascota/destroy/{id}','destroy');
+    Route::get('mascota/eliminados','deletes');
+    Route::get('mascota/restaurar/{id}','restore');
+});

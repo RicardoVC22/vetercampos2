@@ -22,7 +22,7 @@
         <div class="{{ $auth_type ?? 'login' }}-logo">
             <a href="{{ $dashboard_url }}">
                 <img src="{{ asset(config('adminlte.logo_img')) }}" height="100">
-                <b>Pollo </b> Montero
+                <b>Veter </b> Campos
             </a>
         </div>
 

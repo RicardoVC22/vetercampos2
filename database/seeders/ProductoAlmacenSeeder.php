@@ -34,18 +34,6 @@ class ProductoAlmacenSeeder extends Seeder
             'stock' => '300',
             'estado' => '1',
         ]);
-        DB::table('producto_almacen')->insert([
-            'id_producto' => '4',
-            'id_almacen' => '3',
-            'stock' => '300',
-            'estado' => '1',
-        ]);
-        DB::table('producto_almacen')->insert([
-            'id_producto' => '5',
-            'id_almacen' => '3',
-            'stock' => '300',
-            'estado' => '1',
-        ]);
-    
+
     }
 }
